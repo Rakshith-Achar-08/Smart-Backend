@@ -22,6 +22,7 @@ public class StopTime {
     private String departureTime;
     private String stopId;
     private int stopSequence;
+    private String stopHeadings;
 
 
     public Long getId() {
@@ -72,6 +73,14 @@ public class StopTime {
         this.departureTime = departureTime;
     }
 
+    public String getStopHeadings() {
+        return stopHeadings;
+    }
+
+    public void setStopHeadings(String stopHeadings) {
+        this.stopHeadings = stopHeadings;
+    }
+
     @Override
     public String toString() {
         return "StopTime{" +
@@ -81,6 +90,7 @@ public class StopTime {
                 ", departureTime='" + departureTime + '\'' +
                 ", stopId='" + stopId + '\'' +
                 ", stopSequence=" + stopSequence +
+                ", stopHeadings='" + stopHeadings + '\'' +
                 '}';
     }
 }

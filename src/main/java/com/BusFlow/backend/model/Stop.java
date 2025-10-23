@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 public class Stop {
     @Id
     private String stopId;
-
-    private int zoneId;
     private String stopName;
     private double stopLat;
     private double stopLon;
@@ -51,19 +49,10 @@ public class Stop {
         this.stopLon = stopLon;
     }
 
-    public int getZoneId() {
-        return zoneId;
-    }
-
-    public void setZoneId(int zoneId) {
-        this.zoneId = zoneId;
-    }
-
     @Override
     public String toString() {
         return "Stop{" +
                 "stopId='" + stopId + '\'' +
-                ", zoneId=" + zoneId +
                 ", stopName='" + stopName + '\'' +
                 ", stopLat=" + stopLat +
                 ", stopLon=" + stopLon +

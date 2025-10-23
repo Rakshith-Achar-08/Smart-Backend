@@ -18,6 +18,7 @@ public class Route {
     private String routeLongName;
 
 
+
     public String getRouteId() {
         return routeId;
     }
@@ -41,6 +42,7 @@ public class Route {
     public void setRouteLongName(String routeLongName) {
         this.routeLongName = routeLongName;
     }
+
 
     @Override
     public String toString() {

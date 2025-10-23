@@ -21,7 +21,6 @@ public class Shape {
     private double shapePtLat;
     private double shapePtLon;
     private int shapePtSequence;
-    private double shapeDistTraveled;
 
     public Long getId() {
         return id;
@@ -63,13 +62,6 @@ public class Shape {
         this.shapePtSequence = shapePtSequence;
     }
 
-    public double getShapeDistTraveled() {
-        return shapeDistTraveled;
-    }
-
-    public void setShapeDistTraveled(double shapeDistTraveled) {
-        this.shapeDistTraveled = shapeDistTraveled;
-    }
 
     @Override
     public String toString() {
@@ -79,7 +71,6 @@ public class Shape {
                 ", shapePtLat=" + shapePtLat +
                 ", shapePtLon=" + shapePtLon +
                 ", shapePtSequence=" + shapePtSequence +
-                ", shapeDistTraveled=" + shapeDistTraveled +
                 '}';
     }
 }

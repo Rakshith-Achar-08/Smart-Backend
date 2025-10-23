@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class BusLocation {
 
     @Id
-    private int Busid;
+    private String Busid;
 
     @ManyToOne
     @JoinColumn(name = "bus_Id", referencedColumnName = "busId")
@@ -24,11 +24,11 @@ public class BusLocation {
     private String nextBusStop;
     private LocalDateTime timestamp;
 
-    public int getBusid() {
+    public String getBusid() {
         return Busid;
     }
 
-    public void setBusid(int busid) {
+    public void setBusid(String busid) {
         Busid = busid;
     }
 
