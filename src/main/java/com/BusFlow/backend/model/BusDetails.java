@@ -16,14 +16,14 @@ public class BusDetails {
 
 
 //    private int id;
-    @Id
-    @Column(unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;//(eg:BMTC101, BMTC102 etc)
 
     private int capacity;
     private String routeId;
-
+    @Id
+    @Column(unique = true, nullable = false)
     private String busNumber;//(eg: 402B, 50D)
 
     private String licensePlate;

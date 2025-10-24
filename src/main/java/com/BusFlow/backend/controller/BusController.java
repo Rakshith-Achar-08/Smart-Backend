@@ -1,5 +1,6 @@
 package com.BusFlow.backend.controller;
 
+import com.BusFlow.backend.model.BusDetails;
 import com.BusFlow.backend.model.Route;
 import com.BusFlow.backend.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,25 @@ public class BusController {
     public BusService service;
 
     @GetMapping("/buses")
-    public ResponseEntity<List<Route>> getAllBuses(){
+    public ResponseEntity<List<BusDetails>> get(){
         return new ResponseEntity<>(service.getAllBuses(), HttpStatus.OK);
     }
 
-    @GetMapping("/buses/{routeId}")
+    @GetMapping("/buses/{busesNumber}")
+    public  ResponseEntity<BusDetails> getBuses(@PathVariable String busesNumber){
+        return new ResponseEntity<>(service.getBus(busesNumber), HttpStatus.OK);
+    }
+
+
+
+    @GetMapping("/routes")
+    public ResponseEntity<List<Route>> getAllBuses(){
+        return new ResponseEntity<>(service.getAllRoutes(), HttpStatus.OK);
+    }
+
+    @GetMapping("/routes/{routeId}")
     public ResponseEntity<Route> getRoute(@PathVariable String routeId) {
-        Route route = service.getBus(routeId);
+        Route route = service.getRoute(routeId);
         if (route != null) {
             return ResponseEntity.ok(route);
         } else {

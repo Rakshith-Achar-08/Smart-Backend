@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BusDetailsRepository extends JpaRepository<BusDetails, Integer> {
+public interface BusDetailsRepository extends JpaRepository<BusDetails,String> {
 //    List<BusDetails> findByStartPointContainingAndEndPointContainingIgnoreCase(String start, String end);
 }
