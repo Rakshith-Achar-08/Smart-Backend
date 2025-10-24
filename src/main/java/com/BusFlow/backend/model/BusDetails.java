@@ -21,7 +21,6 @@ public class BusDetails {
 //    private int id;
     @Id
     @Column(unique = true, nullable = false)
-
     private String busId;//(eg:BMTC101, BMTC102 etc)
 
     private String routeName; //(eg: Doddaballapura, yelahanka)
