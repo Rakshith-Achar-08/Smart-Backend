@@ -1,8 +1,6 @@
 package com.BusFlow.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.NamedEntityGraph;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Stop {
     @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String stopId;
     private String stopName;
     private double stopLat;

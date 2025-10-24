@@ -1,9 +1,9 @@
 package com.BusFlow.backend.model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 
@@ -11,25 +11,24 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BusLocation {
+    // ... other fields
+
 
     @Id
-    private String Busid;
-
-    @ManyToOne
-    @JoinColumn(name = "bus_Id", referencedColumnName = "busId")
-    private BusDetails bus;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
 
     private double latitude;
     private double longitude;
     private String nextBusStop;
     private LocalDateTime timestamp;
 
-    public String getBusid() {
-        return Busid;
+    public String getid() {
+        return id;
     }
 
-    public void setBusid(String busid) {
-        Busid = busid;
+    public void setBusid(String id) {
+        this.id = id;
     }
 
     public String getNextBusStop() {
@@ -48,13 +47,6 @@ public class BusLocation {
         this.longitude = longitude;
     }
 
-    public BusDetails getBus() {
-        return bus;
-    }
-
-    public void setBus(BusDetails bus) {
-        this.bus = bus;
-    }
 
     public double getLatitude() {
         return latitude;
@@ -75,8 +67,7 @@ public class BusLocation {
     @Override
     public String toString() {
         return "BusLocation{" +
-                "Busid=" + Busid +
-                ", bus=" + bus +
+                "Busid=" + id +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", nextBusStop='" + nextBusStop + '\'' +

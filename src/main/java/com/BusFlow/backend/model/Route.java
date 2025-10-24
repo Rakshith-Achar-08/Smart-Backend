@@ -1,6 +1,7 @@
 package com.BusFlow.backend.model;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Route {
     @Id
+    @Column(name = "routeId")
     private String routeId;
 
     private String routeShortName;

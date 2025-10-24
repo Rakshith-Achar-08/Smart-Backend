@@ -1,9 +1,6 @@
 package com.BusFlow.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
@@ -11,11 +8,8 @@ import java.time.LocalDateTime;
 public class CrowdData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "bus_id", referencedColumnName = "busId")
-    private BusDetails bus;
 
     private int onBoardCount;
 
@@ -75,19 +69,11 @@ public class CrowdData {
         this.onBoardCount = onBoardCount;
     }
 
-    public BusDetails getBus() {
-        return bus;
-    }
-
-    public void setBus(BusDetails bus) {
-        this.bus = bus;
-    }
 
     @Override
     public String toString() {
         return "CrowdData{" +
                 "id=" + id +
-                ", bus=" + bus +
                 ", onBoardCount=" + onBoardCount +
                 ", entered=" + entered +
                 ", exicted=" + exited +

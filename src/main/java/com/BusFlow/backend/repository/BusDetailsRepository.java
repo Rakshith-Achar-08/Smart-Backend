@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface BusDetailsRepository extends JpaRepository<BusDetails, Integer> {
-    List<BusDetails> findByStartPointContainingAndEndPointContainingIgnoreCase(String start, String end);
+//    List<BusDetails> findByStartPointContainingAndEndPointContainingIgnoreCase(String start, String end);
 }
