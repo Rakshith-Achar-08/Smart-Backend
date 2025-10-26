@@ -12,6 +12,9 @@ public class Trip {
 
     private String routeId;
 
+//    @Column(name = "shape_id") // <-- ADD THIS LINE
+    private String shapeId;
+
     public String getTripId() {
         return tripId;
     }
@@ -28,11 +31,20 @@ public class Trip {
         this.routeId = routeId;
     }
 
+    public String getShapeId() {
+        return shapeId;
+    }
+
+    public void setShapeId(String shapeId) {
+        this.shapeId = shapeId;
+    }
+
     @Override
     public String toString() {
         return "Trip{" +
                 "tripId='" + tripId + '\'' +
                 ", routeId='" + routeId + '\'' +
+                ", shapeId='" + shapeId + '\'' +
                 '}';
     }
 }

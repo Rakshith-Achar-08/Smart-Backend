@@ -31,6 +31,7 @@ public class BusDetails {
     private String endPoint;
     private String category;
     private String status;
+
     // "busDetails" is the name of the field in BusLocation.java
 
 //    private List<BusLocation> locations;
