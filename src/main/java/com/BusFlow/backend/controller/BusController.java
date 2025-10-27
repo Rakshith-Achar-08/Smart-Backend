@@ -41,7 +41,6 @@ public class BusController {
 
     @GetMapping("/track-bus")
     public ResponseEntity<List<BusDetails>> searchBusesByRouteIdPrefix(@RequestParam String prefix) {
-
         List<BusDetails> buses = service.findBusesByRouteIdPrefix(prefix);
 
         if (buses.isEmpty()) {
