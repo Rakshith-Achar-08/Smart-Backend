@@ -111,21 +111,17 @@ public class BusService {
 
     public List<BusRouteInfoDTO> findBusRouteInfoByBusNumber(String busNumber) {
 
-        // 1. Find the bus(es) matching the number
         List<BusDetails> buses = busDetailsRepository.findByBusNumberContainingIgnoreCase(busNumber);
 
-        // 2. For each bus, gather its related info
         return buses.stream().map(bus -> {
-            String routeId = bus.getRouteId();
+            String shapeId = bus.getShapeId(); // Get shape_id directly from the bus
             List<Shape> routeShape = Collections.emptyList();
 
-            // 3. Find the shape (for the map)
-            Trip trip = tripRepository.findFirstByRouteId(routeId);
-            if (trip != null && trip.getShapeId() != null) {
-                routeShape = shapeRepository.findByShapeIdOrderByShapePtSequenceAsc(trip.getShapeId());
+            // This 'if' will now work!
+            if (shapeId != null) {
+                routeShape = shapeRepository.findByShapeIdOrderByShapePtSequenceAsc(shapeId);
             }
 
-            // 4. Combine it all into one response object
             return new BusRouteInfoDTO(bus, routeShape);
 
         }).collect(Collectors.toList());

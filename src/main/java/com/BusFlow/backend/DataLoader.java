@@ -1,10 +1,10 @@
 package com.BusFlow.backend;
 
-import com.BusFlow.backend.model.Route; // Change this to your specific class
+import com.BusFlow.backend.model.Route;
 import com.BusFlow.backend.model.Shape;
 import com.BusFlow.backend.model.Stop;
 import com.BusFlow.backend.model.StopTime;
-import com.BusFlow.backend.repository.RouteRepository; // Change this to your specific repository
+import com.BusFlow.backend.repository.RouteRepository;
 import com.BusFlow.backend.repository.ShapeRepository;
 import com.BusFlow.backend.repository.StopRepository;
 import com.BusFlow.backend.repository.StopTimeRepository;

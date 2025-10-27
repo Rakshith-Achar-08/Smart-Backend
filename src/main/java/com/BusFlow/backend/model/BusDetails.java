@@ -21,9 +21,10 @@ public class BusDetails {
     private Long id;//(eg:BMTC101, BMTC102 etc)
 
     private int capacity;
-    private String routeId;
     @Id
     @Column(unique = true, nullable = false)
+    private String routeId;
+
     private String busNumber;//(eg: 402B, 50D)
 
     private String licensePlate;
@@ -31,6 +32,7 @@ public class BusDetails {
     private String endPoint;
     private String category;
     private String status;
+    private String shapeId;
 
     // "busDetails" is the name of the field in BusLocation.java
 
@@ -109,6 +111,14 @@ public class BusDetails {
         this.routeId = routeId;
     }
 
+    public void setShapeId(String shapeId){
+        this.shapeId=shapeId;
+    }
+
+    public String getShapeId(){
+        return shapeId;
+    }
+
     @Override
     public String toString() {
         return "BusDetails{" +
@@ -121,6 +131,7 @@ public class BusDetails {
                 ", endPoint='" + endPoint + '\'' +
                 ", category='" + category + '\'' +
                 ", status='" + status + '\'' +
+                ", shapeId='" + shapeId + '\'' +
                 '}';
     }
 }

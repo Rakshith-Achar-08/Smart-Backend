@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TripRepository extends JpaRepository<Trip, String> {
 
-    @Query("SELECT * FROM trips WHERE route_id = '335E';")
     Trip findFirstByRouteId(String routeId);
 
 }
