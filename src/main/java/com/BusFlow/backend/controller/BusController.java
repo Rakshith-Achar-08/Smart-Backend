@@ -8,10 +8,7 @@ import com.BusFlow.backend.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +16,7 @@ import java.util.List;
 public class BusController {
     @Autowired
     public BusService service;
-
+    @CrossOrigin
     @GetMapping("/about-bus")
     public ResponseEntity<List<BusDetails>> get(){
         return new ResponseEntity<>(service.getAllBuses(), HttpStatus.OK);
@@ -37,32 +34,47 @@ public class BusController {
 
 
 
-    @GetMapping("/routes")
+    @GetMapping("/search-route")
     public ResponseEntity<List<Route>> getAllBuses(){
         return new ResponseEntity<>(service.getAllRoutes(), HttpStatus.OK);
     }
 
-    @GetMapping("/routes/{routeId}")
-    public ResponseEntity<Route> getRoute(@PathVariable String routeId) {
-        Route route = service.getRoute(routeId);
-        if (route != null) {
-            return ResponseEntity.ok(route);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
     @GetMapping("/track-bus")
-    public ResponseEntity<List<BusRouteInfoDTO>> trackBusByNumber(@RequestParam String busNumber) {
+    public ResponseEntity<List<BusDetails>> searchBusesByRouteIdPrefix(@RequestParam String prefix) {
 
-        List<BusRouteInfoDTO> routeInfoList = service.findBusRouteInfoByBusNumber(busNumber);
+        List<BusDetails> buses = service.findBusesByRouteIdPrefix(prefix);
 
-        if (routeInfoList.isEmpty()) {
+        if (buses.isEmpty()) {
+            // If no buses found, return 404 Not Found
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(routeInfoList);
+            // If buses are found, return 200 OK with the list
+            return ResponseEntity.ok(buses);
         }
     }
+
+
+//    @GetMapping("/routes/{routeId}")
+//    public ResponseEntity<Route> getRoute(@PathVariable String routeId) {
+//        Route route = service.getRoute(routeId);
+//        if (route != null) {
+//            return ResponseEntity.ok(route);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
+//    @GetMapping("/track-bus")
+//    public ResponseEntity<List<BusRouteInfoDTO>> trackBusByNumber(@RequestParam String busNumber) {
+//
+//        List<BusRouteInfoDTO> routeInfoList = service.findBusRouteInfoByBusNumber(busNumber);
+//
+//        if (routeInfoList.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        } else {
+//            return ResponseEntity.ok(routeInfoList);
+//        }
+//    }
 }
 
 

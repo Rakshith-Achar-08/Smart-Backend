@@ -107,24 +107,8 @@ public class BusService {
         return journeyPlans;
     }
 
-
-
-    public List<BusRouteInfoDTO> findBusRouteInfoByBusNumber(String busNumber) {
-
-        List<BusDetails> buses = busDetailsRepository.findByBusNumberContainingIgnoreCase(busNumber);
-
-        return buses.stream().map(bus -> {
-            String shapeId = bus.getShapeId(); // Get shape_id directly from the bus
-            List<Shape> routeShape = Collections.emptyList();
-
-            // This 'if' will now work!
-            if (shapeId != null) {
-                routeShape = shapeRepository.findByShapeIdOrderByShapePtSequenceAsc(shapeId);
-            }
-
-            return new BusRouteInfoDTO(bus, routeShape);
-
-        }).collect(Collectors.toList());
+    public List<BusDetails> findBusesByRouteIdPrefix(String prefix) {
+        return busDetailsRepository.findByRouteIdStartingWithIgnoreCase(prefix);
     }
 
 }

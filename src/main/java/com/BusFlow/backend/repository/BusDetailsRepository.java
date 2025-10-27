@@ -16,7 +16,7 @@ public interface BusDetailsRepository extends JpaRepository<BusDetails,String> {
             "AND LOWER(b.endPoint) LIKE LOWER(CONCAT('%', :endPoint, '%'))")
     List<BusDetails> findByStartAndEnd(@Param("startPoint") String startPoint, @Param("endPoint") String endPoint);
 
-    List<BusDetails> findByBusNumberContainingIgnoreCase(String busNumber);
+    List<BusDetails> findByRouteIdStartingWithIgnoreCase(String prefix);
 
 //        SELECT b FROM BusDetails b
 //        WHERE b.startPoint = :startPoint

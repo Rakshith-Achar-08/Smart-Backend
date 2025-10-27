@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatusCode;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -12,26 +13,41 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class BusDetails {
 
+@Table(name = "bus_details")
+
+//@RequestMapping("/api")
+public class BusDetails {
 
 //    private int id;
 
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;//(eg:BMTC101, BMTC102 etc)
-
+//    private Long id;//(eg:BMTC101, BMTC102 etc)
+    @Column(name = "capacity")
     private int capacity;
-    @Id
-    @Column(unique = true, nullable = false)
-    private String routeId;
 
+    @Id
+    @Column(name = "route_id", unique = true, nullable = false)
+    private String routeId;
+    @Column(name = "bus_number")
     private String busNumber;//(eg: 402B, 50D)
 
+    @Column(name = "license_plate")
     private String licensePlate;
+
+    @Column(name = "start_point")
     private String startPoint;
+
+    @Column(name = "end_point")
     private String endPoint;
+
+    @Column(name = "category")
     private String category;
+
+    @Column(name="status")
     private String status;
+
+    @Column(name="shape_id")
     private String shapeId;
 
     // "busDetails" is the name of the field in BusLocation.java
@@ -39,13 +55,13 @@ public class BusDetails {
 //    private List<BusLocation> locations;
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public String getStatus() {
         return status;
@@ -122,8 +138,7 @@ public class BusDetails {
     @Override
     public String toString() {
         return "BusDetails{" +
-                "id=" + id +
-                ", capacity=" + capacity +
+                "capacity=" + capacity +
                 ", routeId='" + routeId + '\'' +
                 ", busNumber='" + busNumber + '\'' +
                 ", licensePlate='" + licensePlate + '\'' +
